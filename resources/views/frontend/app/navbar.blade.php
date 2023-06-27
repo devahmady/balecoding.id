@@ -11,7 +11,7 @@
          <div class="collapse navbar-collapse justify-content-between px-0 px-lg-3" id="navbarCollapse">
              <div class="navbar-nav mr-auto py-0">
                  <a href="/" class="nav-item nav-link {{ Request::is('/') ? 'active' : '' }}">Home</a>
-                 <a href="/frontend/home/download" class="nav-item nav-link {{ Request::is('frontend/home/download') ? 'active' : '' }}">File Download</a>
+                 {{-- <a href="download" class="nav-item nav-link {{ Request::is('download') ? 'active' : '' }}">File Download</a> --}}
                  {{-- <a href="single.html" class="nav-item nav-link">Single News</a>
                  <div class="nav-item dropdown">
                      <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Dropdown</a>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Models\Blog;
+use App\Models\Support;
 use App\Models\Visitor;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -17,7 +18,7 @@ class CategoryController extends Controller
         $terbaru = Blog::orderBy('updated_at', 'DESC')->limit('5')->get();
         $onlineUsers = DB::table('users', true)->SUM('is_online');
 
-        return view('frontend/home/category',[
+        return view('category',[
             'title' => $category->name,
             'blog' => $category->blog->load('category', 'author'),
             'blogs' => Blog::all(), 
@@ -25,7 +26,8 @@ class CategoryController extends Controller
             'terbaru' => $terbaru,
             'category' => $category->name,
             'kategori' => Category::all(),
-            'online' => $onlineUsers
+            'online' => $onlineUsers,
+            'support' => Support::all()
         ]);
     }
 }

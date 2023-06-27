@@ -37,7 +37,7 @@
              <h5 class="mb-4 text-white text-uppercase font-weight-bold">Categories</h5>
              <div class="m-n1">
                  @foreach ($kategori as $item)
-                     <a href="/frontend/home/category/{{ $item->name }}" class="btn btn-sm btn-secondary m-1">{{ $item->name }}</a>
+                     <a href="/frontend/home/category/{{ $item->slug }}" class="btn btn-sm btn-secondary m-1">{{ $item->name }}</a>
                  @endforeach
 
              </div>

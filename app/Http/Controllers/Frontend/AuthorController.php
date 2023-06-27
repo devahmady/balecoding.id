@@ -18,7 +18,7 @@ class AuthorController extends Controller
         $totalVisitors = Visitor::select('ip_address')->distinct()->count();
         $onlineUsers = DB::table('users', true)->SUM('is_online');
           
-        return view('frontend/home/author',[
+        return view('author',[
             'title' => 'Blog Author',
             'blog' => $author->blog->load('category', 'author'),
             'author' => User::all(),

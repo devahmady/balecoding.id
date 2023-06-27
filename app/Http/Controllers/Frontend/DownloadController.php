@@ -17,7 +17,7 @@ class DownloadController extends Controller
         $terbaru = Blog::orderBy('created_at')->limit('5')->get();
         $onlineUsers = DB::table('users', true)->SUM('is_online');
 
-        return view('frontend/home/download', [
+        return view('download', [
             'title' => 'halaman download',
             'downloads' => Download::all(),
             'blogs' => Blog::all(),

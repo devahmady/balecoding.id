@@ -2,27 +2,25 @@
 <html lang="en">
 
 <head>
-    <title>Bale Coding - Informasi Teknologi Terkini</title>
-    <meta name="description"
-        content="Indeks berita terkini dan terbaru hari ini dari peristiwa, kecelakaan, kriminal, hukum, berita unik, Politik, dan liputan khusus di Indonesia dan Internasional"
-        itemprop="description" />
+    <title>@yield('judul', 'balecoding.id')</title>
+    <meta content="@yield('more' , 'Jelajahi dunia programming dengan informasi terbaru, tips koding, tutorial, software, web, dan mobile. Pelajari algoritma dan struktur data. Temukan teknologi, arsitektur software, debugging, framework, dan open source.')" name="description">
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta property="og:type" content="article" />
-    <meta property="og:site_name" content="detikcom" />
-    <meta property="og:title" content="detikcom - Informasi Berita Terkini dan Terbaru Hari Ini" />
-    <meta property="og:image" content="https://cdn.detik.net.id/detik2/images/logo.jpg" />
-    <meta property="og:description"
-        content="Indeks berita terkini dan terbaru hari ini dari peristiwa, kecelakaan, kriminal, hukum, berita unik, Politik, dan liputan khusus di Indonesia dan Internasional" />
-    <meta property="og:url" content="https://www.detik.com" />
-    <meta property="og:image:type" content="image/jpeg" />
-    <meta property="og:image:width" content="650" />
-    <meta property="og:image:height" content="366" />
-    <meta name="copyright" content="" itemprop="dateline" />
-    <meta name="robots" content="index, follow" />
-    <meta name="googlebot" content="index, follow" />
-    <meta name="googlebot-news" content="index, follow" />
+    <meta http-equiv="X-UA-Compatible" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="bale coding">
+    <meta property="og:image" content="{{ asset('assets') }}/img/icon.png">
+    <meta property="og:description" content="@yield('more')" name="description">
+    <meta property="og:url" content="@yield('slug')">
+    <meta property="og:image:type" content="@yield('img')">
+    <meta property="og:image:width" content="650">
+    <meta property="og:image:height" content="366">
+    <meta name="copyright" content="" itemprop="balecoding">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta name="googlebot-news" content="index, follow">
+    <link rel="shortcut icon" href="{{ asset('assets') }}/img/icon.png" type="image/x-icon">
+
 
 
     <!-- Google Web Fonts -->
@@ -63,7 +61,7 @@
                             </li>
                         @else
                             <li class="nav-item">
-                                <a class="nav-link text-body small" href="/frontend/auth/login">Login</a>
+                                <a class="nav-link text-body small" href="/auth/login">Login</a>
                             </li>
                         @endauth
                     </ul>
@@ -96,9 +94,11 @@
             </div>
         </div>
         <div class="row align-items-center bg-white py-3 px-lg-5">
-            <div class="col-lg-4">
-                <a href="/"><img class="img-fluid" src="{{ asset('frontend') }}/img/img.png" alt=""></a>
-            </div>
+           
+            <a href="/" class="navbar-brand p-0 d-none d-lg-block">
+                <h1 class="m-0 display-5 text-primary">BALECODING.<span class="text-secondary font-weight-normal">ID</span></h1>
+            </a>
+        
             <div class="col-lg-8 text-center text-lg-right">
                 <!-- Breaking News Start -->
                 <div class="container-fluid bg-info ">
@@ -112,7 +112,7 @@
                                         style="width: calc(100% - 170px); padding-right: 90px;">
                                             <div class="text-truncate">
                                                 <a class="text-dark text-uppercase font-weight-semi-bold"
-                                                    href="/frontend/home/blog/">
+                                                    href="/blog">
                                                    lakukan apa yang bisa kamu lakukan
                                                 </a>
                                             </div>

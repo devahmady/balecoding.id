@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Models\Tag;
+// use App\Models\Tag;
 use App\Models\Blog;
 use App\Models\Like;
 use App\Models\Visitor;
@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Redirect;
 
 class BlogController extends Controller
 {
-    public function index()
+    public function index(Blog $blog)
     {
         $onlineUsers = DB::table('users', true)->SUM('is_online');
 
@@ -28,7 +28,7 @@ class BlogController extends Controller
         ->limit(3) // Batasi hanya 5 postingan terpopuler yang ditampilkan
         ->get();
         
-        return view('frontend/home/blog', [
+        return view('blog', [
             'title' => 'halaman home',
             'blogs' => Blog::with('like')->latest()->search()->paginate(10),
             'getip' => UserSystemInfoHelper::get_ip(),
@@ -41,8 +41,8 @@ class BlogController extends Controller
             'trend' => $tren,
             'kategori' => Category::all(),
             'online' => $onlineUsers,
-            'support' => Support::all()
-
+            'support' => Support::all(),
+            'data1' => $blog
             
         ]);
     }
@@ -55,7 +55,7 @@ class BlogController extends Controller
 
         // $blog = Blog::find($blog->id);
         $blog->increment('views');
-        return view('frontend/home/posts', [
+        return view('posts', [
             'title' => 'halaman post',
             'data1' => $blog,
             'jumlah' => $totalVisitors,
@@ -63,7 +63,8 @@ class BlogController extends Controller
             'views' => $blog->views,
             'kategori' => Category::all(),
             'terbaru' => $terbaru,
-            'online' => $onlineUsers
+            'online' => $onlineUsers,
+            'support' => Support::all(),
         
 
         ]);
@@ -117,6 +118,6 @@ class BlogController extends Controller
         $hits = $visitor->hits;
         $jumlah = Visitor::select('ip_address')->distinct()->count();
 
-        return view('frontend/home/posts', compact('hits','jumlah'));
+        return view('posts', compact('hits','jumlah'));
     }
 }

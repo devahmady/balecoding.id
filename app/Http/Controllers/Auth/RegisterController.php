@@ -10,7 +10,7 @@ class RegisterController extends Controller
 {
     public function index()
     {
-        return view('frontend/auth/daftar', [
+        return view('auth/daftar', [
             'title' => 'Daftar'
         ]);
     }
@@ -22,11 +22,11 @@ class RegisterController extends Controller
             'username' => 'required|min:3|max:255|unique:users',
             'email' => 'required|email:dns|unique:users',
             'password' => 'required|min:5|max:255',
-            'g-recaptcha-response' => 'required|captcha'
+            // 'g-recaptcha-response' => 'required|captcha'
 
         ]);
         $data['password'] = bcrypt($data['password']);
         User::create($data);
-        return redirect('frontend/auth/login')->with('oke', 'Registrasi Berhasil, Silahkan Login');
+        return redirect('auth/login')->with('oke', 'Registrasi Berhasil, Silahkan Login');
     }
 }

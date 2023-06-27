@@ -29,13 +29,14 @@ class DashboardBlogController extends Controller
     {
         return view('dashboard/blog/create', [
             'category' => Category::all(),
-            'tag' => Tag::all()
+            // 'tag' => Tag::all()
         ]);
     }
 
 
     public function store(Request $request)
     {
+        // return $request->file('img')->store('img-blog');
         $validateData = $request->validate([
             'judul' => ['required', 'max:255'],
             'slug' => ['required', 'unique:blogs'],
